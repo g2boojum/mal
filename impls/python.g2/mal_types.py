@@ -10,4 +10,5 @@ class Vector(list):
 class HashMap(dict):
     pass
 
-
+class String(str):
+    pass

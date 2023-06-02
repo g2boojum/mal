@@ -1,4 +1,4 @@
-from mal_types import Symbol
+from mal_types import Symbol, String
 from printer import pr_str
 import re
 mal_tokens_re = re.compile(r"""[\s,]*(~@|[\[\]{}()'`~^@]|"(?:\\.|[^\\"])*"?|;.*|[^\s\[\]{}('"`,;)]*)""")
@@ -50,7 +50,7 @@ def read_atom(rdr):
     elif 'false' == token:
         return False
     elif re.match(re_string, token):
-        return token[1:-1]
+        return String(token[1:-1])
     elif re.match(re_int, token):
         return int(token)
     elif re.match(re_float, token):
